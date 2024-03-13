@@ -7,7 +7,7 @@ const AddTodo = ({ onAdd }) => {
         e.preventDefault()
 
         if (!text) {
-            alert('Please add a todo')
+            alert('Add a todo first')
             return
         }
 
@@ -17,15 +17,21 @@ const AddTodo = ({ onAdd }) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="add-todo-form">
             <h3>Add new todo</h3>
-            <input
-                type="text"
-                placeholder="Add todo"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <input type="submit" value="Save todo" />
+            <div className="input-wrapper">
+                <input
+                    type="text"
+                    placeholder="Write a new todo"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <input
+                    className="button button-form"
+                    type="submit"
+                    value="Add todo"
+                />
+            </div>
         </form>
     )
 }

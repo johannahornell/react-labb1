@@ -1,10 +1,8 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const Header = ({ todoItems }) => {
-    useEffect(() => {})
-
     return (
-        <header>
+        <header className="todo-header">
             <h1>Todo</h1>
             <p>{todoItems.length}</p>
         </header>

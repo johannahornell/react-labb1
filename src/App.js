@@ -29,7 +29,7 @@ const App = () => {
     }
 
     const deleteTodo = (id) => {
-        console.log('Delte' + id)
+        setTodoItems(todoItems.filter((todo) => todo.id !== id))
     }
 
     const toggleCompleted = (id) => {

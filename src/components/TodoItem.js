@@ -9,7 +9,10 @@ const TodoItem = ({ onToggle, onDelete, todo }) => {
                 </span>
                 <span className="todo-text">{todo.text}</span>
             </div>
-            <FaTrash onClick={() => onDelete(todo.id)} />
+            <FaTrash
+                style={{ cursor: 'pointer', color: '#4b4b4b' }}
+                onClick={() => onDelete(todo.id)}
+            />
         </div>
     )
 }
