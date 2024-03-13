@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import Header from './components/Header'
+import AddTodo from './components/AddTodo'
+import TodoList from './components/TodoList'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [todoItems, setTodoItems] = useState([
+        {
+            id: 1,
+            text: 'Do laundry',
+            completed: false
+        },
+        {
+            id: 2,
+            text: 'Do the dishes',
+            completed: false
+        },
+        {
+            id: 3,
+            text: 'Do React homework',
+            completed: true
+        }
+    ])
+
+    const addTodo = (todo) => {
+        const id = Math.floor(Math.random() * 1000) + 1
+        const newTodo = { id, ...todo }
+        setTodoItems([...todoItems, newTodo])
+    }
+
+    const deleteTodo = (id) => {
+        console.log('Delte' + id)
+    }
+
+    const toggleCompleted = (id) => {
+        setTodoItems(
+            todoItems.map((todo) =>
+                todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            )
+        )
+    }
+
+    return (
+        <div className="app-container">
+            <div className="todo-content">
+                <Header todoItems={todoItems} />
+                <TodoList
+                    todoItems={todoItems}
+                    onToggle={toggleCompleted}
+                    onDelete={deleteTodo}
+                />
+                <AddTodo onAdd={addTodo} />
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App
