@@ -31,7 +31,7 @@ const App = () => {
     const addTodo = (todo) => {
         const id = Math.floor(Math.random() * 1000) + 1
         const newTodo = { id, ...todo }
-        setTodoItems(prevTodoItems => [...prevTodoItems, newTodo])
+        setTodoItems((prevTodoItems) => [...prevTodoItems, newTodo])
     }
 
     const deleteTodo = (id) => {

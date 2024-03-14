@@ -1,8 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 const AddTodo = ({ onAdd }) => {
     const [text, setText] = useState('')
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        inputRef.current.focus()
+    }, [])
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -26,6 +31,7 @@ const AddTodo = ({ onAdd }) => {
                     placeholder="Write todo here"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
+                    ref={inputRef}
                 />
                 <input
                     className="button button-form"
