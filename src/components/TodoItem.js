@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { FaRegSquareCheck, FaRegSquare, FaTrash } from 'react-icons/fa6'
 
 const TodoItem = ({ onToggle, onDelete, todo }) => {
@@ -15,6 +16,12 @@ const TodoItem = ({ onToggle, onDelete, todo }) => {
             />
         </div>
     )
+}
+
+TodoItem.propTypes = {
+    todo: PropTypes.object,
+    onToggle: PropTypes.func,
+    onDelete: PropTypes.func
 }
 
 export default TodoItem

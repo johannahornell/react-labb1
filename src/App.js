@@ -2,22 +2,28 @@ import { useState } from 'react'
 import Header from './components/Header'
 import AddTodo from './components/AddTodo'
 import TodoList from './components/TodoList'
+import Footer from './components/Footer'
 
 const App = () => {
     const [todoItems, setTodoItems] = useState([
         {
             id: 1,
-            text: 'Do laundry',
+            text: 'Fold the laundry',
             completed: false
         },
         {
             id: 2,
-            text: 'Do the dishes',
+            text: 'Answer important email',
             completed: false
         },
         {
             id: 3,
-            text: 'Do React homework',
+            text: 'Write a grocery list',
+            completed: false
+        },
+        {
+            id: 4,
+            text: 'Finish up "Laboration 1 i React"',
             completed: true
         }
     ])
@@ -25,7 +31,7 @@ const App = () => {
     const addTodo = (todo) => {
         const id = Math.floor(Math.random() * 1000) + 1
         const newTodo = { id, ...todo }
-        setTodoItems([...todoItems, newTodo])
+        setTodoItems(prevTodoItems => [...prevTodoItems, newTodo])
     }
 
     const deleteTodo = (id) => {
@@ -51,6 +57,7 @@ const App = () => {
                 />
                 <AddTodo onAdd={addTodo} />
             </div>
+            <Footer />
         </div>
     )
 }

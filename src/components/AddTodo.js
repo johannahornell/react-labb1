@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 const AddTodo = ({ onAdd }) => {
     const [text, setText] = useState('')
@@ -11,7 +12,7 @@ const AddTodo = ({ onAdd }) => {
             return
         }
 
-        onAdd({ text })
+        onAdd({ text, completed: false })
 
         setText('')
     }
@@ -22,18 +23,22 @@ const AddTodo = ({ onAdd }) => {
             <div className="input-wrapper">
                 <input
                     type="text"
-                    placeholder="Write a new todo"
+                    placeholder="Write todo here"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
                 <input
                     className="button button-form"
                     type="submit"
-                    value="Add todo"
+                    value="Add"
                 />
             </div>
         </form>
     )
+}
+
+AddTodo.propTypes = {
+    onAdd: PropTypes.func
 }
 
 export default AddTodo

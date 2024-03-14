@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 
-export const Todos = ({ todoItems, onToggle, onDelete }) => {
+export const TodoList = ({ todoItems, onToggle, onDelete }) => {
     return (
         <div className="todo-list">
             {todoItems.map((todo) => (
@@ -15,4 +16,10 @@ export const Todos = ({ todoItems, onToggle, onDelete }) => {
     )
 }
 
-export default Todos
+TodoList.propTypes = {
+    todoItems: PropTypes.array,
+    onToggle: PropTypes.func,
+    onDelete: PropTypes.func
+}
+
+export default TodoList

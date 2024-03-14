@@ -23,11 +23,16 @@ body {
     border-radius: 6px;
     min-width: 100px;
     padding: 10px 12px;
+    cursor: pointer;
 }
 
 .button-form {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+.todo-header {
+    margin-bottom: 30px;
 }
 
 .todo-header h1 {
@@ -36,7 +41,8 @@ body {
 
 .todo-content {
     background: #fff;
-    min-width: 400px;
+    width: 100%;
+    max-width: 400px;
     padding: 30px;
     border-radius: 10px;
 }
@@ -53,6 +59,7 @@ body {
 
 .todo-list .todo-item.completed .todo-text {
     text-decoration: line-through;
+    opacity: 0.6;
 }
 
 .toggle-todo {
